@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang=de-de class=portfolio >
+	<head>
+		<meta charset=utf-8 />
+		<title>Portfolio</title>
+		<link rel=stylesheet type=text/css href=style.css />
+		<link rel='shortcut icon' type=image/png href=icon.png sizes=512x512 >
+		<meta name=viewport content='width=device-width, initial-scale=1'/>
+	</head><body>
+		<h1>Portfolio</h1>
+		<section>
+			<h2>sunflower spiral (2018)</h2>
+			<img src=sunflower.svg >
+			<p>Programm in JS und SVG, dass spiralförmige Muster zeichnet, die in vielen Pflanzenarten zu finden sind.</p>
+			<p>Parameter werden Addresse übergeben</p>
+		</section>
+		<section>
+			<h2>duochrome (2013)</h2>
+			<img src=duochrome.svg />
+			<p>Kleiner Iconsatz (60 Stück) in minimalistischer Geometrie und Farbgebung.</p>
+		</section>
+		<section>
+			<h2>minismile (2010, 2012)</h2>
+			<img src=minismile.svg />
+			<p>Minimalistisches Emoticon/Emoji Design.</p>
+		</section>
+		<section >
+			<h2>walk (2017)</h2>
+			<p>Einfacher <q>Laufsimulator</q> zum Experimentieren mit Grafik und Steuerung in Echtzeit. Steuerung mit <code>WASD</code>, <code>Q</code>, <code>E</code>. <code>Shift</code> für Beschleunigung.<p>
+		</section><section>
+			<h2>celluloid (2017)</h2>
+			<img src=rule105.svg />
+			<p>Experimentierprogramm für eindimensionale zelluläre Automaten. <p>
+		</section>
+	<script >
+		[...document.getElementsByTagName ('section')]
+			.forEach (el => el.onclick = () =>
+				el.style.width =
+					el.style.width == '100%' ? '' : '100%'
+			)
+	</script>
+</body></html>
