@@ -28,8 +28,10 @@
 		</section>
 	<script >
 		[...document.getElementsByTagName ('section')]
-			.forEach (el => el.onclick = () =>
-				el.classList.toggle('highlight')
+			.forEach (el => el.onclick = () => {
+					el.classList.toggle('highlight')
+					el.scrollIntoView ()
+				}
 			)
 	</script>
 </body></html>
