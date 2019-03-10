@@ -21,8 +21,9 @@ html {
 	background-position: center;
 	justify-content: center; align-items: center;
 	min-height: 100vh; width: 100%;
+	background-color: var(--mainColor);
 }
-html.portfolio {background-color: #20e080;}
+html.portfolio {--mainColor: #20e080;}
 @keyframes fromTop {
   0% {transform: translateY(-50vh);}
 	100% {transform: translateY(0);}
@@ -111,7 +112,7 @@ nav {
 	margin: 2.5em 0 -8.5em 0;
 	text-align: center;
 } nav > a {
-	border: 0; border-top: 1em solid #80e020;
+	border: 0; border-top: 1em solid var(--mainColor);
 	display: block;
 	background-color: #fff; color: #000;
 	max-width: 10em;
@@ -119,6 +120,17 @@ nav {
 	padding: 1em 2em 2em 2em; margin:auto;
 	transition: border .5s;
 } nav > a:hover {
-	border-top: 1em solid #80ff00;
+	border-top: 1em solid var(--mainColor);
 	font-weight: 400;
+}
+
+a {
+	color: var(--mainColor);
+}
+
+.highlight {
+	width: 100%;
+	box-shadow: 0 0 2em var(--mainColor);
+	padding: 0 2em 0 2em;
+	margin: 0 0 0 -2em;
 }
