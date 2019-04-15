@@ -23,7 +23,11 @@ html {
 	min-height: 100vh; width: 100%;
 	background-color: var(--mainColor);
 }
-html.portfolio {--mainColor: #20e080;}
+
+html.portfolio {--mainColor: #2080e0;}
+html.anschreiben {--mainColor: #e02080;}
+html.lebenslauf {--mainColor: #80e020;}
+
 @keyframes fromTop {
   0% {transform: translateY(-50vh);}
 	100% {transform: translateY(0);}
@@ -38,35 +42,17 @@ body {
 	padding: 2em 0 2em 2em;
 	background-position: center;
 }
-@media (min-width: 768pt) {body {font-size: 16pt}}
-@media (max-width: 256pt) {body {font-size: 8pt}}
-@media print {
-	html {font-size: 10pt}
-	body {
-		max-width: 100%;
-		margin: -2em 0;
-		padding: 2em 0;
-	}
-	.anschreiben body {
-		border: 2em solid #e02080;
-	}
-	.lebenslauf body {
-		border-top: 2em solid #80e020;
-		border-bottom: 2em solid #80e020;
-		/*border-image: url("flower.svg") fill;*/
-	}
-	nav {display: none}
-}
+
 section {
 	width: 14em;
 	flex-grow: 2;
-	margin-right: 2em;
+	margin: 0 2em 1em 0;
 } section.small {
 	width: 10em;
 	flex-grow: 1;
 }
 article {
-	margin-right: 2em;	
+	margin: 0 2em 2em 0;	
 	text-align: justify; text-justify: auto;
 	column-fill: balance; column-gap: 2em; column-width: 15em;
 	orphans: 3; widows: 3;
@@ -82,55 +68,91 @@ article {
 .sig {
 	font-size: 1.333em;
 	font-weight: 300;
-}
-
-@supports (mix-blend-mode: screen) {
+} @supports (mix-blend-mode: screen) {
 	.sig::after {
 		display: block;
 		content: '';
 		height: 1em;
 		width: 100%;
 		margin-top: -1em;
-		background: linear-gradient(#000, #C00060);
+		background: linear-gradient(#000, var(--mainColor));
 		mix-blend-mode: screen;
 		pointer-events:none;
 	}
 }
 
 h1 {
-	margin-top: 0;
-	margin-right: 2rem;
+	margin: 0 2rem 2rem 0;
 	width: 100%;
 	letter-spacing: 0.25em; text-align: right;
 	font-size: 1.5em; font-weight: 600;
-} h2 {
-	font-size: 1.25em; font-weight: 400;
 }
-ul {padding-left: 2em;}
-nav {
-	width: 100%;
-	margin: 2.5em 0 -8.5em 0;
-	text-align: center;
-} nav > a {
-	border: 0; border-top: 1em solid var(--mainColor);
-	display: block;
-	background-color: #fff; color: #000;
-	max-width: 10em;
-	font-size: 1.5em; font-weight: 300; text-decoration: none;
-	padding: 1em 2em 2em 2em; margin:auto;
-	transition: border .5s;
-} nav > a:hover {
-	border-top: 1em solid var(--mainColor);
+h2 {
+	font-size: 1.25em;
 	font-weight: 400;
+	margin: 0 0 2rem 0;
 }
 
-a {
-	color: var(--mainColor);
+ul {padding-left: 1.5em;}
+
+nav {
+	width: calc(100% + 2em);
+	text-align: center;
+	margin: 0 0 -5.75em -2em;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+} nav > a {
+	display: block;
+	background-color: #808080;
+	color: #fff;
+	font-size: 1.5em; font-weight: 300; text-decoration: none;
+	padding: 1em 2em;
+	margin:0 1em 1em 1em;
+} nav > a::before {
+	content: "→";
+	padding-right: .25em;
+	margin-left: -.25em;
 }
+nav > a:hover, nav > a:focus {
+	font-weight: 400;
+	filter: saturate(1.5);
+}
+#zu-lebenslauf {background-color: #80C040}
+#zu-portfolio {background-color: #4080C0}
+#zu-anschreiben {background-color: #c04080}
+
+
+a {color: var(--mainColor);}
 
 .highlight {
 	width: 100%;
-	box-shadow: 0 0 2em var(--mainColor);
+	box-shadow: 0 0 0 .5em #000;
 	padding: 0 2em 0 2em;
 	margin: 0 0 0 -2em;
+}
+
+.highlightable section {
+	margin: -1em 1em 1em -1em;
+	padding: 1em
+}
+.highlightable section:hover, .highlightable section:focus {
+	box-shadow: 0 0 0 .5em var(--mainColor);
+}
+
+@media (min-width: 768pt) {body {font-size: 16pt}}
+@media (max-width: 256pt) {body {font-size: 8pt}}
+@media print {
+	nav {display: none}
+	html {
+		font-size: 10pt;
+		background-attachment: scroll;
+	}
+	body {
+		margin: 2em;
+		padding: 2em 0 0 2em;
+	}
+	.lebenslauf body {
+		max-width: 100%;
+	}
 }

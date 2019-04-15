@@ -1,0 +1,73 @@
+@charset 'utf-8';
+
+/* Source Sans Pro */
+
+@font-face {src: url(font/SourceSansPro-ExtraLight.otf.woff);
+	font-family: SourceSansPro; font-style: normal; font-weight: 200;
+} @font-face {src: url(font/SourceSansPro-Light.otf.woff);
+	font-family: SourceSansPro; font-style: normal; font-weight: 300;
+} @font-face {src: url(font/SourceSansPro-Regular.otf.woff);
+	font-family: SourceSansPro; font-style: normal; font-weight: normal;
+} @font-face {src: url(font/SourceSansPro-Semibold.otf.woff);
+	font-family: SourceSansPro; font-style: normal; font-weight: 500;
+} @font-face {src: url(font/SourceSansPro-Bold.otf.woff);
+	font-family: SourceSansPro; font-style: normal; font-weight: bold;
+} @font-face {src: url(font/SourceSansPro-Black.otf.woff);
+	font-family: SourceSansPro; font-style: normal; font-weight: 800;
+} @font-face {src: url(font/SourceSansPro-ExtraLightIt.otf.woff);
+	font-family: SourceSansPro; font-style: italic; font-weight: 200;
+} @font-face {src: url(font/SourceSansPro-LightIt.otf.woff);
+	font-family: SourceSansPro; font-style: italic; font-weight: 300;
+} @font-face {src: url(font/SourceSansPro-RegularIt.otf.woff);
+	font-family: SourceSansPro; font-style: italic; font-weight: italic;
+} @font-face {src: url(font/SourceSansPro-SemiboldIt.otf.woff);
+	font-family: SourceSansPro; font-style: italic; font-weight: 500;
+} @font-face {src: url(font/SourceSansPro-BoldIt.otf.woff);
+	font-family: SourceSansPro; font-style: italic; font-weight: bold;
+} @font-face {src: url(font/SourceSansPro-BlackIt.otf.woff);
+	font-family: SourceSansPro; font-style: italic; font-weight: 800;
+}
+
+/* Source Serif Pro */
+
+@font-face {src: url(font/SourceSerifPro-ExtraLight.otf.woff);
+	font-family: SourceSerifPro; font-style: normal; font-weight: 200;
+} @font-face {src: url(font/SourceSerifPro-Light.otf.woff);
+	font-family: SourceSerifPro; font-style: normal; font-weight: 300;
+} @font-face {src: url(font/SourceSerifPro-Regular.otf.woff);
+	font-family: SourceSerifPro; font-style: normal; font-weight: normal;
+} @font-face {src: url(font/SourceSerifPro-Semibold.otf.woff);
+	font-family: SourceSerifPro; font-style: normal; font-weight: 500;
+} @font-face {src: url(font/SourceSerifPro-Bold.otf.woff);
+	font-family: SourceSerifPro; font-style: normal; font-weight: bold;
+} @font-face {src: url(font/SourceSerifPro-Black.otf.woff);
+	font-family: SourceSerifPro; font-style: normal; font-weight: 800;
+}
+
+/* Source Code Pro */
+
+@font-face {src: url(font/SourceCodePro-ExtraLight.otf.woff);
+	font-family: SourceCodePro; font-style: normal; font-weight: 200;
+} @font-face {src: url(font/SourceCodePro-Light.otf.woff);
+	font-family: SourceCodePro; font-style: normal; font-weight: 300;
+} @font-face {src: url(font/SourceCodePro-Regular.otf.woff);
+	font-family: SourceCodePro; font-style: normal; font-weight: normal;
+} @font-face {src: url(font/SourceCodePro-Semibold.otf.woff);
+	font-family: SourceCodePro; font-style: normal; font-weight: 500;
+} @font-face {src: url(font/SourceCodePro-Bold.otf.woff);
+	font-family: SourceCodePro; font-style: normal; font-weight: bold;
+} @font-face {src: url(font/SourceCodePro-Black.otf.woff);
+	font-family: SourceCodePro; font-style: normal; font-weight: 800;
+} @font-face {src: url(font/SourceCodePro-ExtraLightIt.otf.woff);
+	font-family: SourceCodePro; font-style: italic; font-weight: 200;
+} @font-face {src: url(font/SourceCodePro-LightIt.otf.woff);
+	font-family: SourceCodePro; font-style: italic; font-weight: 300;
+} @font-face {src: url(font/SourceCodePro-RegularIt.otf.woff);
+	font-family: SourceCodePro; font-style: italic; font-weight: italic;
+} @font-face {src: url(font/SourceCodePro-SemiboldIt.otf.woff);
+	font-family: SourceCodePro; font-style: italic; font-weight: 500;
+} @font-face {src: url(font/SourceCodePro-BoldIt.otf.woff);
+	font-family: SourceCodePro; font-style: italic; font-weight: bold;
+} @font-face {src: url(font/SourceCodePro-BlackIt.otf.woff);
+	font-family: SourceCodePro; font-style: italic; font-weight: 800;
+}
