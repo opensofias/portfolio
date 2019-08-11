@@ -41,6 +41,7 @@ body {
 	margin: 2em 0 33.33vh 0;
 	padding: 2em 0 2em 2em;
 	background-position: center;
+	clip-path: polygon(1em 4em, calc(100% - 3em) 0, 100% 2em, calc(100% - 1em) 33.33%, 100% 100%, 33.33% calc(100% - 1em), 1em 100%, 0 75%);
 }
 
 section {
@@ -121,7 +122,6 @@ nav > a:hover, nav > a:focus {
 #zu-lebenslauf {background-color: #80C040}
 #zu-portfolio {background-color: #4080C0}
 #zu-anschreiben {background-color: #c04080}
-
 
 a {color: var(--mainColor);}
 
