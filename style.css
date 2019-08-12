@@ -148,6 +148,14 @@ a {color: var(--mainColor);}
 	--cornerColor: #000;
 }
 
+@media (max-width: 77em)
+{
+	.highlight {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+}
+
 .highlightable section {
 	margin: -1em;
 	padding: 1em;
