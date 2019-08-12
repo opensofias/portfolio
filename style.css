@@ -147,33 +147,33 @@ nav > a:hover, nav > a:focus {
 a {color: var(--mainColor);}
 
 .highlight {
-	/*! width: 100%; */
-	box-shadow: 0 0 0 .125em #000;
-	/*! padding: 0 2em 0 2em; */
-	/*! margin: 0 0 0 -2em; */
+	/*! box-shadow: 0 0 0 .125em #000; */
 	grid-column: span 2;
 	grid-row: span 2;
+	--cornerColor: #000;
 }
 
 .highlightable section {
 	margin: -1em;
 	padding: 1em;
+	--corner-color: #fff;
+	background-image: linear-gradient(135deg, var(--cornerColor) 0, var(--cornerColor) 1em,transparent 1em), linear-gradient(-45deg,  var(--cornerColor) 0, var(--cornerColor) 1em,transparent 1em);
 }
 .highlightable section:hover, .highlightable section:focus {
-	box-shadow: 0 0 0 .125em var(--mainColor);
+	--cornerColor: var(--mainColor);
 }
 
-@media (min-width: 768pt) {body {font-size: 16pt}}
+@media (min-width: 384pt) {body {font-size: 16pt}}
 @media (max-width: 256pt) {body {font-size: 8pt}}
 @media print {
 	nav {display: none}
-	html {
+	:root {
 		font-size: 10pt;
 		background-attachment: scroll;
 	}
 	body {
-		margin: 2em;
-		padding: 2em 0 0 2em;
+		margin: 2rem;
+		padding: 3rem;
 	}
 	.lebenslauf body {
 		max-width: 100%;
