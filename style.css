@@ -62,20 +62,14 @@ body {
 	grid-auto-flow: dense;
 }
 
-section {
-	flex-grow: 2;
-	margin: 0 2em 1em 0;
-} section.small {
-	width: 10em;
-	flex-grow: 1;
-}
 article {
-	margin: 0 2em 2em 0;	
 	text-align: justify; text-justify: auto;
 	column-fill: balance; column-gap: 2em; column-width: 15em;
 	orphans: 3; widows: 3;
 	text-indent: 1em;
 	width:100%;
+	grid-column: 1 / -1;
+	word-wrap: break-word;
 } article > p:first-child {
 	margin-top: 0;
 	text-indent: 0;
@@ -99,12 +93,22 @@ article {
 	}
 }
 
+code {
+	font-family: 'SourceCodePro';
+	font-weight: 300;
+}
+
 h1 {
 	margin: 0;
 	letter-spacing: 0.25em; text-align: right;
 	font-size: 1.5em; font-weight: 600;
-	grid-column: 1/-1;
+	grid-column: 1 / -1;
 }
+h1:after {
+    content: ":";
+    color: var(--mainColor);
+}
+
 h2 {
 	font-size: 1.25em;
 	font-weight: 400;
@@ -113,20 +117,33 @@ h2 {
 
 ul {padding-left: 1.5em;}
 
+a {color: var(--mainColor);}
+li::marker {
+	color: var(--mainColor);
+	content: "▸";
+}
+::selection {background-color: var(--mainColor)}
+
+small {
+	font-size: 1em;
+	font-weight: 200;
+}
+
 nav {
 	width: calc(100% + 2em);
 	text-align: center;
-	margin: 0 0 -5.75em -2em;
+	margin: 0 0 -5rem -2rem;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	grid-column: 1 / -1;
 } nav > a {
 	display: block;
 	background-color: #808080;
 	color: #fff;
 	font-size: 1.5em; font-weight: 300; text-decoration: none;
 	padding: 1em 2em;
-	margin:0 1em 1em 1em;
+	margin:0 1rem 1rem 1rem;
 } nav > a::before {
 	content: "→";
 	padding-right: .25em;
@@ -140,7 +157,21 @@ nav > a:hover, nav > a:focus {
 #zu-portfolio {background-color: #4080C0}
 #zu-anschreiben {background-color: #c04080}
 
-a {color: var(--mainColor);}
+.album {
+	width: 100%;
+	display: grid;
+	gap: .5rem;
+	grid-template-columns: repeat(4, 1fr)
+}
+
+.highlight .album {
+	gap: 1rem;
+	grid-template-columns: repeat(2, 1fr)
+}
+
+.album > img {
+	width: 100%
+}
 
 .highlight {
 	grid-column: span 2;
@@ -148,13 +179,11 @@ a {color: var(--mainColor);}
 	--cornerColor: #000;
 }
 
-@media (max-width: 77em)
-{
+@media (max-width: 77em) {
 	.highlight {
 		grid-column: span 1;
 		grid-row: span 1;
-	}
-}
+}}
 
 .highlightable section {
 	margin: -1em;
@@ -165,6 +194,14 @@ a {color: var(--mainColor);}
 .highlightable section:hover, .highlightable section:focus {
 	--cornerColor: var(--mainColor);
 }
+
+.size1 {grid-row-end: span 1}
+.size2 {grid-row-end: span 2}
+.size3 {grid-row-end: span 3}
+.size4 {grid-row-end: span 4}
+.size5 {grid-row-end: span 5}
+.size6 {grid-row-end: span 6}
+.size7 {grid-row-end: span 7}
 
 @media (min-width: 384pt) {body {font-size: 16pt}}
 @media (max-width: 256pt) {body {font-size: 8pt}}
@@ -177,6 +214,7 @@ a {color: var(--mainColor);}
 	body {
 		margin: 2rem;
 		padding: 3rem;
+		clip-path: none;
 	}
 	.lebenslauf body {
 		max-width: 100%;
