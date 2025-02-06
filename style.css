@@ -1,4 +1,4 @@
-@charset 'utf-8'; @import url('fonts.css');
+@charset 'utf-8'; @import url('vfonts.css');
 @keyframes fromBlack {
   0% {
 		background-image: url("flower.svg"),
@@ -11,6 +11,7 @@
 		background-size: cover, 100vw 300vh;
 		background-position: center, 0 -300vh; 
 }}
+
 :root {
 	animation: .333s linear 0s 1 fromBlack;
 	display: grid;
@@ -22,11 +23,21 @@
 	justify-content: center; align-items: center;
 	min-height: 100vh; width: 100%;
 	background-color: var(--mainColor);
-	grid-template-columns: 1fr minmax(48em, 4fr) 1fr;
+	grid-template-columns: 1fr minmax(48rem, 4fr) 1fr;
+
+	@media screen and (max-width: 768pt)
+	{
+		grid-template-columns: 0 100% 0
+	}
+
+
+
+	@media (min-width: 384pt) {font-size: 16pt}
+	@media (max-width: 256pt) {font-size: 8pt}
 }
-@media (max-width: 48rem)
-{
-	:root {
+
+html.portfolio, html.lebenslauf {
+	@media print {
 		grid-template-columns: 0 100% 0
 	}
 }
@@ -39,6 +50,7 @@ html.lebenslauf {--mainColor: #80e020;}
   0% {transform: translateY(-50vh);}
 	100% {transform: translateY(0);}
 }
+
 body {
 	animation: .333s linear 0s 1 fromTop;
 	display: grid;
@@ -70,26 +82,33 @@ article {
 	width:100%;
 	grid-column: 1 / -1;
 	word-wrap: break-word;
-} article > p:first-child {
-	margin-top: 0;
-	text-indent: 0;
-} article > p:last-child {
-	margin-bottom: 0;
-	text-indent: 0;
+	> p:first-child {
+		margin-top: 0;
+	}
+	> p:last-child {
+		margin-bottom: 0;
+	}
 }
+
+section {
+	break-inside: avoid-page;
+}
+
 .sig {
 	font-size: 1.333em;
 	font-weight: 300;
-} @supports (mix-blend-mode: screen) {
-	.sig::after {
-		display: block;
-		content: '';
-		height: 1em;
-		width: 100%;
-		margin-top: -1em;
-		background: linear-gradient(#000, var(--mainColor));
-		mix-blend-mode: screen;
-		pointer-events:none;
+
+	@supports (mix-blend-mode: screen) {
+		&::after {
+			display: block;
+			content: '';
+			height: 1em;
+			width: 100%;
+			margin-top: -1em;
+			background: linear-gradient(#000, var(--mainColor));
+			mix-blend-mode: screen;
+			pointer-events:none;
+		}
 	}
 }
 
@@ -103,30 +122,37 @@ h1 {
 	letter-spacing: 0.25em; text-align: right;
 	font-size: 1.5em; font-weight: 600;
 	grid-column: 1 / -1;
+	&:after {
+		content: ":";
+		color: var(--mainColor);
+	}
 }
-h1:after {
-    content: ":";
-    color: var(--mainColor);
-}
+
 
 h2 {
 	font-size: 1.25em;
 	font-weight: 400;
-	margin: 0 0 2rem 0;
+	margin: 0 0 1rem 0;
 }
 
-ul {padding-left: 1.5em;}
+ul {padding-left: 1em;}
 
 a {color: var(--mainColor);}
 li::marker {
 	color: var(--mainColor);
 	content: "▸";
 }
+li {padding-left: .5em;}
 ::selection {background-color: var(--mainColor)}
 
 small {
 	font-size: 1em;
 	font-weight: 200;
+}
+q {
+	font-style: italic;
+	&::before {content: "»"}
+	&::after {content: "«"}
 }
 
 nav {
@@ -137,21 +163,25 @@ nav {
 	justify-content: center;
 	flex-wrap: wrap;
 	grid-column: 1 / -1;
-} nav > a {
-	display: block;
-	background-color: #808080;
-	color: #fff;
-	font-size: 1.5em; font-weight: 300; text-decoration: none;
-	padding: 1em 2em;
-	margin:0 1rem 1rem 1rem;
-} nav > a::before {
-	content: "→";
-	padding-right: .25em;
-	margin-left: -.25em;
-}
-nav > a:hover, nav > a:focus {
-	font-weight: 400;
-	filter: saturate(1.5);
+	> a {
+		display: block;
+		background-color: #808080;
+		color: #fff;
+		font-size: 1.5em; font-weight: 300; text-decoration: none;
+		padding: .5em 1em 2em 1em;
+		margin:0 1rem 1rem 1rem;
+		transform: rotate(-3deg);
+		transition: .333s;
+	}
+	> a::before {
+		content: "→";
+		padding-right: .25em;
+		margin-left: -.25em;
+	}
+	> a:hover, > a:focus {
+		font-weight: 400;
+		filter: saturate(1.5);
+	}
 }
 #zu-lebenslauf {background-color: #80C040}
 #zu-portfolio {background-color: #4080C0}
@@ -161,12 +191,19 @@ nav > a:hover, nav > a:focus {
 	width: 100%;
 	display: grid;
 	gap: .5rem;
-	grid-template-columns: repeat(4, 1fr)
+	grid-template-columns: repeat(4, 1fr);
+
+	align-items: center;
+	justify-items: center;
 }
 
 .highlight .album {
 	gap: 1rem;
 	grid-template-columns: repeat(2, 1fr)
+}
+
+.highlight.xl .album {
+	grid-template-columns: 1fr
 }
 
 .album > img {
@@ -177,6 +214,10 @@ nav > a:hover, nav > a:focus {
 	grid-column: span 2;
 	grid-row: span 2;
 	--cornerColor: #000;
+}
+
+.highlight.xl {
+	grid-row: span 4;
 }
 
 @media (max-width: 77em) {
@@ -203,8 +244,39 @@ nav > a:hover, nav > a:focus {
 .size6 {grid-row-end: span 6}
 .size7 {grid-row-end: span 7}
 
-@media (min-width: 384pt) {body {font-size: 16pt}}
-@media (max-width: 256pt) {body {font-size: 8pt}}
+.last_col {
+	grid-column-end: -1;
+}
+
+.cv_photo {
+	margin: -1rem;
+	width: calc(100% + 4rem);
+	max-height: 24rem;
+	object-fit: cover;
+	clip-path: polygon(
+		0 1rem,
+		100% 0,
+		100% 100%,
+		1rem calc(100% - 1rem)
+	);
+
+	@media screen and (max-width: 50.5rem)
+	{
+		margin: -1rem -2rem;
+		width: calc(100% + 5rem);
+		clip-path: polygon(
+			0 1rem,
+			100% 0,
+			100% 100%,
+			0 calc(100% - 1rem)
+		)
+	}
+}
+
+.hidden {
+	display: none;
+}
+
 @media print {
 	nav {display: none}
 	:root {
@@ -212,11 +284,13 @@ nav > a:hover, nav > a:focus {
 		background-attachment: scroll;
 	}
 	body {
-		margin: 2rem;
-		padding: 3rem;
-		clip-path: none;
-	}
-	.lebenslauf body {
 		max-width: 100%;
+	}
+
+	.lebenslauf, .portfolio {
+		font-size: 9pt;
+		& body {
+			margin: 2rem
+		}
 	}
 }
